@@ -45,7 +45,7 @@ ARTIFACTS_DIR: Final[Path] = ROOT_DIR / "artifacts" / "sqlite"
 SQL_DIR: Final[Path] = ROOT_DIR / "sql" / "sqlite"
 
 STORE_CSV: Final[Path] = DATA_RAW_DIR / "store.csv"
-SALE_CSV: Final[Path] = DATA_RAW_DIR / "order.csv"
+ORDER_CSV: Final[Path] = DATA_RAW_DIR / "order.csv"
 DB_PATH: Final[Path] = ARTIFACTS_DIR / "restaurant.sqlite"
 
 # === DECLARE HELPER FUNCTION:  READ SQL FROM PATH ===
