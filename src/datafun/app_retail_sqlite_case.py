@@ -1,6 +1,6 @@
-"""app_retail_sqlite_case.py - Project script (example).
+"""app_restaurant_sqlite_case.py - Project script
 
-Author: ralph Massaquoi
+Author: Ralph Massaquoi
 Date: 2026-06
 
 Purpose:
