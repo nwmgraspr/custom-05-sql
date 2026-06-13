@@ -18,4 +18,4 @@ SELECT
   COUNT(*) AS order_count,
   ROUND(SUM(amount), 2) AS total_revenue,
   ROUND(AVG(amount), 2) AS avg_order_amount
-FROM sale;
+FROM order;
