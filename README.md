@@ -25,7 +25,7 @@ Analysts are typically highly skilled at both SQL and Python.
 Sample datasets are provided in the `data/raw` folder
 across several topic domains:
 
-- **retail** - a store records many sales (the worked example)
+- **restaurant** - a store records many sales (the worked example)
 - **library** - a library branch manages many checkouts
 - **shelter** - a shelter manages many animal adoptions
 - **civic_event** - an event manages many attendees
@@ -126,8 +126,8 @@ uvx pre-commit run --all-files
 uvx pre-commit run --all-files
 
 # run the example pipelines (duckdb and sqlite)
-uv run python -m datafun.app_retail_duckdb_case
-uv run python -m datafun.app_retail_sqlite_case
+uv run python -m datafun.app_restaurant_duckdb_case
+uv run python -m datafun.app_restaurant_sqlite_case
 
 # do chores
 uv run ruff format .
@@ -162,16 +162,16 @@ Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 ## DuckDB Example Output (Replace This with Yours and Describe)
 
 ```shell
-| INFO | P05 | RUN SQL query: C:\Repos\datafun\datafun-05-sql\sql\duckdb\case_retail_query_sales_by_category.sql
+| INFO | P05 | RUN SQL query: C:\Repos\datafun\datafun-05-sql\sql\duckdb\case_restaurant_query_order_by_category.sql
 | INFO | P05 | ====================================
-| INFO | P05 | case_retail_query_sales_by_category.sql
+| INFO | P05 | case_restaurant_query_sales_by_category.sql
 | INFO | P05 | ====================================
-| INFO | P05 | product_category, sale_count, total_revenue, avg_sale_amount
+| INFO | P05 | product_category, order_count, total_revenue, avg_order_amount
 | INFO | P05 | Outdoors, 9, 3200.0, 355.56
 | INFO | P05 | Clothing, 10, 1375.0, 137.5
 | INFO | P05 | Food, 11, 652.0, 59.27
 | INFO | P05 |
-| INFO | P05 | RUN SQL query: C:\Repos\datafun\datafun-05-sql\sql\duckdb\case_retail_query_kpi_revenue.sql
+| INFO | P05 | RUN SQL query: C:\Repos\datafun\datafun-05-sql\sql\duckdb\case_restaurant_query_kpi_revenue.sql
 | INFO | P05 | ====================================
 | INFO | P05 | case_retail_query_kpi_revenue.sql
 | INFO | P05 | ====================================
