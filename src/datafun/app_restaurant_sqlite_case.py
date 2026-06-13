@@ -138,8 +138,7 @@ def load_store_csv(con: sqlite3.Connection, csv_path: Path) -> None:
     INSERT INTO store (store_id, store_name, city, region)
     VALUES (?, ?, ?, ?);
         """,
-    )
-
+    
     con.execute("""
     INSERT INTO orders
     SELECT * FROM read_csv_auto('data/raw/restaurant/order.csv');
