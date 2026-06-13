@@ -212,7 +212,7 @@ def main() -> None:
         # ----------------------------------------------------
         run_sql_script(con, SQL_DIR / "case_restaurant_bootstrap.sql")
         load_store_csv(con, STORE_CSV)
-        load_sale_csv(con, ORDER_CSV)
+        load_order_csv(con, ORDER_CSV)
         con.commit()
         LOG.info("COMMIT: data load complete")
 
