@@ -1,8 +1,8 @@
--- sql/duckdb/case_retail_kpi_revenue.sql
+-- sql/sqlite/case_retail_kpi_revenue.sql
 -- ============================================================
 -- PURPOSE
 -- ============================================================
--- Calculate a Key Performance Indicator (KPI) for the retail domain using DuckDB SQL.
+-- Calculate a Key Performance Indicator (KPI) for the retail domain using SQLite SQL.
 --
 -- KPI DRIVES THE WORK:
 -- In analytics, we do not start with "write a query."
@@ -31,8 +31,8 @@
 -- We always run all commands from the project root directory.
 --
 -- EXPECTED PROJECT PATHS (relative to repo root):
---   SQL:  sql/duckdb/case_retail_kpi_revenue.sql
---   DB:   artifacts/duckdb/retail.duckdb
+--   SQL:  sql/sqlite/case_retail_kpi_revenue.sql
+--   DB:   artifacts/sqlite/retail.sqlite
 --
 --
 -- ============================================================

@@ -1,4 +1,4 @@
--- sql/duckdb/case_retail_query_sales_by_category.sql
+-- sql/sqlite/case_retail_query_sales_by_category.sql
 -- ============================================================
 -- PURPOSE
 -- ============================================================

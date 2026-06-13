@@ -1,4 +1,4 @@
--- sql/duckdb/case_retail_query_sales_aggregate.sql
+-- sql/sqlite/case_retail_query_sales_aggregate.sql
 -- ============================================================
 -- PURPOSE
 -- ============================================================

@@ -1,8 +1,8 @@
--- sql/duckdb/case_retail_clean.sql
+-- sql/sqlite/case_retail_clean.sql
 -- ============================================================
 -- PURPOSE
 -- ============================================================
--- Completely removes retail tables from the DuckDB database (DuckDB).
+-- Completely removes retail tables from the SQLite database (SQLite).
 -- This "clean" step is used to reset the database so we can rebuild it.
 -- Creating a multi-table schema from scratch is a common practice in database management,
 -- and we often need to remove existing tables before recreating them during development or testing.
@@ -11,10 +11,10 @@
 -- We always run all commands from the project root directory.
 --
 -- EXPECTED PROJECT PATHS (relative to repo root):
---   SQL:  sql/duckdb/case_retail_clean.sql
+--   SQL:  sql/sqlite/case_retail_clean.sql
 --   CSV:  data/raw/retail/store.csv
 --   CSV:  data/raw/retail/sale.csv
---   DB:   artifacts/duckdb/retail.duckdb
+--   DB:   artifacts/sqlite/retail.sqlite
 --
 --
 -- ============================================================
