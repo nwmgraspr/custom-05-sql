@@ -175,3 +175,115 @@
 2026-06-12 23:26:26 | INFO | P05 | Executed successfully!
 2026-06-12 23:26:26 | INFO | P05 | ========================
 2026-06-12 23:26:26 | INFO | P05 | END main()
+2026-06-13 00:31:23 | INFO | P05 | === RUN START ===
+2026-06-13 00:31:23 | INFO | P05 | project=P05 Pipeline Example (DuckDB)
+2026-06-13 00:31:23 | INFO | P05 | repo_dir=custom-05-sql
+2026-06-13 00:31:23 | INFO | P05 | python=3.14.5
+2026-06-13 00:31:23 | INFO | P05 | os=Windows 11
+2026-06-13 00:31:23 | INFO | P05 | shell=powershell
+2026-06-13 00:31:23 | INFO | P05 | cwd=.
+2026-06-13 00:31:23 | INFO | P05 | github_actions=False
+2026-06-13 00:31:23 | INFO | P05 | START main()
+2026-06-13 00:31:23 | INFO | P05 | ROOT_DIR: C:\Repos\custom-05-sql
+2026-06-13 00:31:23 | INFO | P05 | DATA_RAW_DIR: C:\Repos\custom-05-sql\data\raw\restaurant
+2026-06-13 00:31:23 | INFO | P05 | DATA_PROCESSED_DIR: C:\Repos\custom-05-sql\data\processed\restaurant
+2026-06-13 00:31:23 | INFO | P05 | SQL_DIR: C:\Repos\custom-05-sql\sql\duckdb
+2026-06-13 00:31:23 | INFO | P05 | DB_PATH: C:\Repos\custom-05-sql\artifacts\duckdb\restaurant.duckdb
+2026-06-13 00:31:23 | INFO | P05 | RUN SQL script: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_clean.sql
+2026-06-13 00:31:23 | INFO | P05 | DONE SQL script: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_clean.sql
+2026-06-13 00:31:23 | INFO | P05 | RUN SQL script: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_bootstrap.sql
+2026-06-13 00:31:23 | INFO | P05 | DONE SQL script: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_bootstrap.sql
+2026-06-13 00:31:23 | INFO | P05 | 
+2026-06-13 00:31:23 | INFO | P05 | RUN SQL query: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_query_store_count.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | case_restaurant_query_store_count.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | store_count
+2026-06-13 00:31:23 | INFO | P05 | 0
+2026-06-13 00:31:23 | INFO | P05 | 
+2026-06-13 00:31:23 | INFO | P05 | RUN SQL query: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_query_order_count.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | case_restaurant_query_order_count.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | sale_count
+2026-06-13 00:31:23 | INFO | P05 | 0
+2026-06-13 00:31:23 | INFO | P05 | 
+2026-06-13 00:31:23 | INFO | P05 | RUN SQL query: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_query_order_aggregate.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | case_restaurant_query_order_aggregate.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | sale_count, total_revenue, avg_sale_amount
+2026-06-13 00:31:23 | INFO | P05 | 0, None, None
+2026-06-13 00:31:23 | INFO | P05 | 
+2026-06-13 00:31:23 | INFO | P05 | RUN SQL query: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_query_order_by_category.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | case_restaurant_query_order_by_category.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | product_category, sale_count, total_revenue, avg_sale_amount
+2026-06-13 00:31:23 | INFO | P05 | 
+2026-06-13 00:31:23 | INFO | P05 | RUN SQL query: C:\Repos\custom-05-sql\sql\duckdb\case_restaurant_query_kpi_revenue.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | case_restaurant_query_kpi_revenue.sql
+2026-06-13 00:31:23 | INFO | P05 | ====================================
+2026-06-13 00:31:23 | INFO | P05 | store_id, store_name, city, region, sale_count, total_revenue, avg_sale_amount
+2026-06-13 00:31:23 | INFO | P05 | ========================
+2026-06-13 00:31:23 | INFO | P05 | Executed successfully!
+2026-06-13 00:31:23 | INFO | P05 | ========================
+2026-06-13 00:31:23 | INFO | P05 | END main()
+2026-06-13 00:40:20 | INFO | P05 | === RUN START ===
+2026-06-13 00:40:20 | INFO | P05 | project=P05 Pipeline Example (SQLite)
+2026-06-13 00:40:20 | INFO | P05 | repo_dir=custom-05-sql
+2026-06-13 00:40:20 | INFO | P05 | python=3.14.5
+2026-06-13 00:40:20 | INFO | P05 | os=Windows 11
+2026-06-13 00:40:20 | INFO | P05 | shell=powershell
+2026-06-13 00:40:20 | INFO | P05 | cwd=.
+2026-06-13 00:40:20 | INFO | P05 | github_actions=False
+2026-06-13 00:40:20 | INFO | P05 | START main()
+2026-06-13 00:40:20 | INFO | P05 | ROOT_DIR: C:\Repos\custom-05-sql
+2026-06-13 00:40:20 | INFO | P05 | DATA_RAW_DIR: C:\Repos\custom-05-sql\data\raw\restaurant
+2026-06-13 00:40:20 | INFO | P05 | DATA_PROCESSED_DIR: C:\Repos\custom-05-sql\data\processed\restaurant
+2026-06-13 00:40:20 | INFO | P05 | SQL_DIR: C:\Repos\custom-05-sql\sql\sqlite
+2026-06-13 00:40:20 | INFO | P05 | DB_PATH: C:\Repos\custom-05-sql\artifacts\sqlite\restaurant.sqlite
+2026-06-13 00:40:20 | INFO | P05 | RUN SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_clean.sql
+2026-06-13 00:40:20 | INFO | P05 | DONE SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_clean.sql
+2026-06-13 00:40:20 | INFO | P05 | RUN SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_bootstrap.sql
+2026-06-13 00:40:20 | INFO | P05 | DONE SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_bootstrap.sql
+2026-06-13 00:40:20 | INFO | P05 | LOAD CSV -> table store: C:\Repos\custom-05-sql\data\raw\restaurant\store.csv
+2026-06-13 00:50:00 | INFO | P05 | === RUN START ===
+2026-06-13 00:50:00 | INFO | P05 | project=P05 Pipeline Example (SQLite)
+2026-06-13 00:50:00 | INFO | P05 | repo_dir=custom-05-sql
+2026-06-13 00:50:00 | INFO | P05 | python=3.14.5
+2026-06-13 00:50:00 | INFO | P05 | os=Windows 11
+2026-06-13 00:50:00 | INFO | P05 | shell=powershell
+2026-06-13 00:50:00 | INFO | P05 | cwd=.
+2026-06-13 00:50:00 | INFO | P05 | github_actions=False
+2026-06-13 00:50:00 | INFO | P05 | START main()
+2026-06-13 00:50:00 | INFO | P05 | ROOT_DIR: C:\Repos\custom-05-sql
+2026-06-13 00:50:00 | INFO | P05 | DATA_RAW_DIR: C:\Repos\custom-05-sql\data\raw\restaurant
+2026-06-13 00:50:00 | INFO | P05 | DATA_PROCESSED_DIR: C:\Repos\custom-05-sql\data\processed\restaurant
+2026-06-13 00:50:00 | INFO | P05 | SQL_DIR: C:\Repos\custom-05-sql\sql\sqlite
+2026-06-13 00:50:00 | INFO | P05 | DB_PATH: C:\Repos\custom-05-sql\artifacts\sqlite\restaurant.sqlite
+2026-06-13 00:50:00 | INFO | P05 | RUN SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_clean.sql
+2026-06-13 00:50:00 | INFO | P05 | DONE SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_clean.sql
+2026-06-13 00:50:00 | INFO | P05 | RUN SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_bootstrap.sql
+2026-06-13 00:50:00 | INFO | P05 | DONE SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_bootstrap.sql
+2026-06-13 00:50:00 | INFO | P05 | LOAD CSV -> table store: C:\Repos\custom-05-sql\data\raw\restaurant\store.csv
+2026-06-13 01:00:00 | INFO | P05 | === RUN START ===
+2026-06-13 01:00:00 | INFO | P05 | project=P05 Pipeline Example (SQLite)
+2026-06-13 01:00:00 | INFO | P05 | repo_dir=custom-05-sql
+2026-06-13 01:00:00 | INFO | P05 | python=3.14.5
+2026-06-13 01:00:00 | INFO | P05 | os=Windows 11
+2026-06-13 01:00:00 | INFO | P05 | shell=powershell
+2026-06-13 01:00:00 | INFO | P05 | cwd=.
+2026-06-13 01:00:00 | INFO | P05 | github_actions=False
+2026-06-13 01:00:00 | INFO | P05 | START main()
+2026-06-13 01:00:00 | INFO | P05 | ROOT_DIR: C:\Repos\custom-05-sql
+2026-06-13 01:00:00 | INFO | P05 | DATA_RAW_DIR: C:\Repos\custom-05-sql\data\raw\restaurant
+2026-06-13 01:00:00 | INFO | P05 | DATA_PROCESSED_DIR: C:\Repos\custom-05-sql\data\processed\restaurant
+2026-06-13 01:00:00 | INFO | P05 | SQL_DIR: C:\Repos\custom-05-sql\sql\sqlite
+2026-06-13 01:00:00 | INFO | P05 | DB_PATH: C:\Repos\custom-05-sql\artifacts\sqlite\restaurant.sqlite
+2026-06-13 01:00:00 | INFO | P05 | RUN SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_clean.sql
+2026-06-13 01:00:00 | INFO | P05 | DONE SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_clean.sql
+2026-06-13 01:00:00 | INFO | P05 | RUN SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_bootstrap.sql
+2026-06-13 01:00:00 | INFO | P05 | DONE SQL script: C:\Repos\custom-05-sql\sql\sqlite\case_restaurant_bootstrap.sql
+2026-06-13 01:00:00 | INFO | P05 | LOAD CSV -> table store: C:\Repos\custom-05-sql\data\raw\restaurant\store.csv
