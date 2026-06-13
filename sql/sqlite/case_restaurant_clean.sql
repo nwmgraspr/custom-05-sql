@@ -1,8 +1,8 @@
--- sql/sqlite/case_retail_clean.sql
+-- sql/sqlite/case_restaurant_clean.sql
 -- ============================================================
 -- PURPOSE
 -- ============================================================
--- Completely removes retail tables from the SQLite database (SQLite).
+-- Completely removes restaurant tables from the SQLite database (SQLite).
 -- This "clean" step is used to reset the database so we can rebuild it.
 -- Creating a multi-table schema from scratch is a common practice in database management,
 -- and we often need to remove existing tables before recreating them during development or testing.
@@ -11,17 +11,17 @@
 -- We always run all commands from the project root directory.
 --
 -- EXPECTED PROJECT PATHS (relative to repo root):
---   SQL:  sql/sqlite/case_retail_clean.sql
---   CSV:  data/raw/retail/store.csv
---   CSV:  data/raw/retail/sale.csv
---   DB:   artifacts/sqlite/retail.sqlite
+--   SQL:  sql/sqlite/case_restaurant_clean.sql
+--   CSV:  data/raw/restaurant/store.csv
+--   CSV:  data/raw/restaurant/order.csv
+--   DB:   artifacts/sqlite/restaurant.sqlite
 --
 --
 -- ============================================================
 -- TOPIC DOMAINS + 1:M RELATIONSHIPS
 -- ============================================================
 -- OUR DOMAINS:
--- Each domain (e.g. retail) has two tables.
+-- Each domain (e.g.restaurant) has two tables.
 -- They are related in a 1-to-many relationship (1:M).
 --
 -- GENERAL:
@@ -34,11 +34,11 @@
 --   that references the primary key in the independent/parent table.
 --
 -- OUR DOMAIN: RETAIL
--- In retail, stores sell many products.
--- Therefore, we have two tables: store (1) and sale (M).
+-- In restaurant, stores sell many products.
+-- Therefore, we have two tables: store (1) and order (M).
 -- - The store table is the independent/parent table (1).
--- - The sale table is the dependent/child table (M).
--- - The foreign key in the sale table references the primary key in the store table.
+-- - The order table is the dependent/child table (M).
+-- - The foreign key in the order table references the primary key in the store table.
 --
 -- REQ: Tables must be removed in reverse order (CHILD FIRST, THEN PARENT)
 --      to avoid foreign key constraint issues.
@@ -61,7 +61,7 @@ BEGIN TRANSACTION;
 -- ============================================================
 -- IMPORTANT:
 -- When removing tables in a 1:M relationship, drop the dependent/child table first.
--- In retail:
+-- In restaurant:
 -- - sale depends on store (sale has store_id).
 -- Therefore:
 -- - Drop sale first, then drop store.
