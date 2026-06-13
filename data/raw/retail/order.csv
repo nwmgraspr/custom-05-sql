@@ -1,4 +1,4 @@
-sale_id,store_id,product_category,quantity,amount,sale_date
+order_id,store_id,product_category,quantity,amount,order_date
 SA001,S001,Clothing,2,120.00,2026-01-05
 SA002,S001,Food,5,45.00,2026-01-06
 SA003,S002,Outdoors,1,250.00,2026-01-07
