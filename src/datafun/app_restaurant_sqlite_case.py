@@ -156,7 +156,7 @@ def load_store_csv(con: sqlite3.Connection, csv_path: Path) -> None:
     con.executemany(
         """
         INSERT INTO store (store_id, store_name, city, region)
-        VALUES (?, ?, ?, ?);
+        VALUES (?, ?, ?, ?)
         """,
         rows,
     )
@@ -207,12 +207,12 @@ def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
     con.executemany(
         """
         INSERT INTO orders (order_id, store_id, product_category, quantity, amount, order_date)
-        VALUES (?, ?, ?, ?, ?, ?);
+        VALUES (?, ?, ?, ?, ?, ?)
         """,
         rows
    )
 
-    LOG.info("DONE loading sale rows: %d", len(rows))
+    LOG.info("DONE loading order rows: %d", len(rows))
 
 >>>>>>> 8d431c1e857cfcf23bbd3599c5103bfbac10fa34
 
@@ -262,9 +262,9 @@ def main() -> None:
         # STEP 3: RUN BASIC QUERIES
         # ----------------------------------------------------
         run_sql_query(con, SQL_DIR / "case_restaurant_query_store_count.sql")
-        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_count.sql")
-        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_aggregate.sql")
-        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_by_category.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_orders_count.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_orders_aggregate.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_orders_by_category.sql")
 
         # ----------------------------------------------------
         # STEP 4: RUN KPI QUERY (ACTION-DRIVEN)
