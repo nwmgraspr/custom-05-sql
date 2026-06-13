@@ -144,9 +144,9 @@ def load_store_csv(con: sqlite3.Connection, csv_path: Path) -> None:
     LOG.info("DONE loading store rows: %d", len(rows))
 
 
-def load_sale_csv(con: sqlite3.Connection, csv_path: Path) -> None:
-    """Load sale.csv into the sale table."""
-    LOG.info("LOAD CSV -> table sale: %s", csv_path)
+def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
+    """Load order.csv into the order table."""
+    LOG.info("LOAD CSV -> table order: %s", csv_path)
 
     with csv_path.open(mode="r", encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
