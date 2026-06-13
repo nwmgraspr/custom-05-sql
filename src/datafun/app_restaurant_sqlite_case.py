@@ -180,7 +180,7 @@ def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
         VALUES (?, ?, ?, ?, ?, ?);
         """,
         rows,
-    )
+  # =====  )
 
    # === LOG.info("DONE loading order rows: %d", len(rows))
 
