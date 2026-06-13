@@ -171,7 +171,7 @@ def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
         rows
    )
 
-    LOG.info("DONE loading sale rows: %d", len(rows))
+    LOG.info("DONE loading order rows: %d", len(rows))
 
 
 
@@ -220,9 +220,9 @@ def main() -> None:
         # STEP 3: RUN BASIC QUERIES
         # ----------------------------------------------------
         run_sql_query(con, SQL_DIR / "case_restaurant_query_store_count.sql")
-        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_count.sql")
-        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_aggregate.sql")
-        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_by_category.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_orders_count.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_orders_aggregate.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_orders_by_category.sql")
 
         # ----------------------------------------------------
         # STEP 4: RUN KPI QUERY (ACTION-DRIVEN)
