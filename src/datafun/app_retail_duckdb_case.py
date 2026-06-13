@@ -1,6 +1,6 @@
 """app_retail_duckdb_case.py - Project script (example).
 
-Author: Denise Case
+Author: Ralph Massaquoi
 Date: 2026-02
 
 Purpose:
