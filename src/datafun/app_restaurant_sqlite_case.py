@@ -13,7 +13,7 @@ Purpose:
 Paths (relative to repo root):
    SQL:  sql/sqlite/*.sql
    CSV:  data/raw/restaurant/store.csv
-   CSV:  data/raw/restaurant/ordere.csv
+   CSV:  data/raw/restaurant/order.csv
    DB:   artifacts/sqlite/restaurant.sqlite
 
 OBS:
