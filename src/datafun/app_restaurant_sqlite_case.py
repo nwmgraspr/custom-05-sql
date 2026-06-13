@@ -133,15 +133,15 @@ def load_store_csv(con: sqlite3.Connection, csv_path: Path) -> None:
         for r in reader:
             rows.append((r["store_id"], r["store_name"], r["city"], r["region"]))
 
-    con.execute("""
-    INSERT INTO order
-    SELECT * FROM read_csv_auto('data/raw/restaurant/order.csv');
-    """)
+    con.executemany(
+        """
+        INSERT INTO store (store_id, store_name, city, region)
+        VALUES (?, ?, ?, ?);
+        """,
+        rows,
+    )
 
-      con.execute("""
-    INSERT INTO restaurant
-    SELECT * FROM read_csv_auto('data/raw/restaurant/store.csv');
-    """)
+    LOG.info("DONE loading store rows: %d", len(rows))
 
 def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
     """Load order.csv into the order table."""
@@ -163,10 +163,17 @@ def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
                 )
             )
 
-        con.execute("""
-        INSERT INTO orders
-        SELECT * FROM read_csv_auto('data/raw/restaurant/order.csv');
-        """)
+      con.executemany(
+        """
+        INSERT INTO sale (sale_id, store_id, product_category, quantity, amount, sale_date)
+        VALUES (?, ?, ?, ?, ?, ?);
+        """,
+        rows,
+    )
+
+    LOG.info("DONE loading sale rows: %d", len(rows))
+
+
 
 # === DEFINE THE MAIN FUNCTION ===
 
