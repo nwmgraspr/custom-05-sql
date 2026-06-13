@@ -1,8 +1,8 @@
--- sql/sqlite/case_retail_kpi_revenue.sql
+-- sql/sqlite/case_restaurant_kpi_revenue.sql
 -- ============================================================
 -- PURPOSE
 -- ============================================================
--- Calculate a Key Performance Indicator (KPI) for the retail domain using SQLite SQL.
+-- Calculate a Key Performance Indicator (KPI) for the restaurant domain using SQLite SQL.
 --
 -- KPI DRIVES THE WORK:
 -- In analytics, we do not start with "write a query."
@@ -31,8 +31,8 @@
 -- We always run all commands from the project root directory.
 --
 -- EXPECTED PROJECT PATHS (relative to repo root):
---   SQL:  sql/sqlite/case_retail_kpi_revenue.sql
---   DB:   artifacts/sqlite/retail.sqlite
+--   SQL:  sql/sqlite/case_restaurant_kpi_revenue.sql
+--   DB:   artifacts/sqlite/restaurant.sqlite
 --
 --
 -- ============================================================
@@ -45,10 +45,10 @@
 --
 -- HOW THIS RELATES TO OUR KPI:
 -- - The store table tells us "which store" (store_id, store_name, location).
--- - The sale table contains the measurable activity (amount, quantity, category, date).
+-- - The order table contains the measurable activity (amount, quantity, category, date).
 -- - To compute revenue by store, we must:
---   1) connect each sale to its store (JOIN on store_id),
---   2) aggregate sales amounts at the store level (GROUP BY store).
+--   1) connect each order to its store (JOIN on store_id),
+--   2) aggregate orders amounts at the store level (GROUP BY store).
 --
 --
 -- ============================================================
@@ -60,7 +60,7 @@
 -- "How much revenue did each store generate?"
 --
 -- MEASURE:
--- - revenue = SUM(sale.amount)
+-- - revenue = SUM(order.amount)
 --
 -- GRAIN (LEVEL OF DETAIL):
 -- - one row per store
@@ -68,14 +68,14 @@
 -- OUTPUT (WHAT DECISION-MAKERS NEED):
 -- - store identifier and name
 -- - total revenue
--- - optionally: number of sales and average sale amount
+-- - optionally: number of orders and average order amount
 --
 --
 -- ============================================================
 -- EXECUTION: GET THE INFORMATION THAT INFORMS THE KPI
 -- ============================================================
 -- Strategy:
--- - JOIN store (1) to sale (M)
+-- - JOIN store (1) to order (M)
 -- - GROUP BY store
 -- - SUM amounts to compute revenue
 -- - ORDER results so we can quickly see top stores
@@ -85,11 +85,11 @@ SELECT
   s.store_name,
   s.city,
   s.region,
-  COUNT(sa.sale_id) AS sale_count,
+  COUNT(sa.order_id) AS sale_count,
   ROUND(SUM(sa.amount), 2) AS total_revenue,
-  ROUND(AVG(sa.amount), 2) AS avg_sale_amount
+  ROUND(AVG(sa.amount), 2) AS avg_order_amount
 FROM store AS s
-JOIN sale AS sa
+JOIN order AS sa
   ON sa.store_id = s.store_id
 GROUP BY
   s.store_id,
