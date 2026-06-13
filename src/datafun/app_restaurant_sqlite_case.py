@@ -163,13 +163,13 @@ def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
                 )
             )
 
-      con.executemany(
+    con.executemany(
         """
-        INSERT INTO sale (sale_id, store_id, product_category, quantity, amount, sale_date)
+        INSERT INTO orders (order_id, store_id, product_category, quantity, amount, order_date)
         VALUES (?, ?, ?, ?, ?, ?);
         """,
-        rows,
-    )
+        rows
+   )
 
     LOG.info("DONE loading sale rows: %d", len(rows))
 
