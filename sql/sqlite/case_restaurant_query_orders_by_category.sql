@@ -1,11 +1,11 @@
--- sql/sqlite/case_retail_query_sales_by_category.sql
+-- sql/sqlite/case_restaurant_query_order_by_category.sql
 -- ============================================================
 -- PURPOSE
 -- ============================================================
--- Break overall sales performance down by product category.
+-- Break overall orders performance down by product category.
 --
 -- This query answers:
--- "How many sales and how much revenue do we have by category?"
+-- "How many orders and how much revenue do we have by category?"
 --
 -- WHY:
 -- - Overall totals hide important differences.
@@ -20,9 +20,9 @@
 
 SELECT
   product_category,
-  COUNT(*) AS sale_count,
+  COUNT(*) AS order_count,
   ROUND(SUM(amount), 2) AS total_revenue,
-  ROUND(AVG(amount), 2) AS avg_sale_amount
-FROM sale
+  ROUND(AVG(amount), 2) AS avg_order_amount
+FROM order
 GROUP BY product_category
 ORDER BY total_revenue DESC;

@@ -1,24 +1,24 @@
--- sql/sqlite/case_retail_bootstrap.sql
+-- sql/sqlite/case_restaurant_bootstrap.sql
 -- ============================================================
 -- PURPOSE
 -- ============================================================
--- Creates retail tables and loads data from CSV files (SQLite).
+-- Creates restaurant tables and loads data from CSV files (SQLite).
 --
 -- ASSUMPTION:
 -- We always run all commands from the project root directory.
 --
 -- EXPECTED PROJECT PATHS (relative to repo root):
---   SQL:  sql/sqlite/case_retail_bootstrap.sql
---   CSV:  data/raw/retail/store.csv
---   CSV:  data/raw/retail/sale.csv
---   DB:   artifacts/sqlite/retail.sqlite
+--   SQL:  sql/sqlite/case_restaurant_bootstrap.sql
+--   CSV:  data/raw/restaurant/store.csv
+--   CSV:  data/raw/restaurant/order.csv
+--   DB:   artifacts/sqlite/restaurant.sqlite
 --
 --
 -- ============================================================
 -- TOPIC DOMAINS + 1:M RELATIONSHIPS
 -- ============================================================
 -- OUR DOMAINS:
--- Each domain (e.g. retail) has two tables.
+-- Each domain (e.g. restaurant) has two tables.
 -- They are related in a 1-to-many relationship (1:M).
 --
 -- GENERAL:
@@ -31,10 +31,10 @@
 --   that references the primary key in the independent/parent table.
 --
 -- OUR DOMAIN: RETAIL
--- In retail, stores sell many products.
+-- In restaurant, stores sell many products.
 -- Therefore, we have two tables: store (1) and sale (M).
 -- - The store table is the independent/parent table (1).
--- - The sale table is the dependent/child table (M).
+-- - The order table is the dependent/child table (M).
 -- - The foreign key in the sale table references the primary key in the store table.
 --
 -- REQ: Tables must be created in order to satisfy foreign key constraints.
@@ -57,8 +57,8 @@ BEGIN TRANSACTION;
 -- STEP 1: CREATE TABLES (PARENT FIRST, THEN CHILD)
 -- ============================================================
 -- The independent table must be created first.
--- In retail, stores exist independently of sales.
--- Therefore, create the store table before the sale table.
+-- In restaurant, stores exist independently of sales.
+-- Therefore, create the store table before the order table.
 --
 -- Create the `store` table using SQLite SQL syntax and data types.
 -- In our table, all the fields are required (NOT NULL).
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS store (
   city TEXT NOT NULL,
   region TEXT NOT NULL
 );
--- Create the `sale` table using SQLite SQL syntax and data types.
+-- Create the `order` table using SQLite SQL syntax and data types.
 CREATE TABLE IF NOT EXISTS sale (
   -- Every table must have a primary key that uniquely identifies each record.
   sale_id TEXT PRIMARY KEY,
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS sale (
   product_category TEXT NOT NULL,
   quantity INTEGER NOT NULL,
   amount DOUBLE NOT NULL,
-  sale_date TEXT NOT NULL
+ order_date TEXT NOT NULL
 );
 --
 --

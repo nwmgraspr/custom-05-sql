@@ -133,6 +133,7 @@ def load_store_csv(con: sqlite3.Connection, csv_path: Path) -> None:
         for r in reader:
             rows.append((r["store_id"], r["store_name"], r["city"], r["region"]))
 
+<<<<<<< HEAD
         # con.executemany(
         (
             """
@@ -151,6 +152,17 @@ def load_store_csv(con: sqlite3.Connection, csv_path: Path) -> None:
     INSERT INTO restaurant
     SELECT * FROM read_csv_auto('data/raw/restaurant/store.csv');
     """)
+=======
+    con.executemany(
+        """
+        INSERT INTO store (store_id, store_name, city, region)
+        VALUES (?, ?, ?, ?);
+        """,
+        rows,
+    )
+
+    LOG.info("DONE loading store rows: %d", len(rows))
+>>>>>>> 8d431c1e857cfcf23bbd3599c5103bfbac10fa34
 
 
 def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
@@ -173,6 +185,7 @@ def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
                 )
             )
 
+<<<<<<< HEAD
         con.execute("""
         INSERT INTO orders
         SELECT * FROM read_csv_auto('data/raw/restaurant/order.csv');
@@ -190,6 +203,18 @@ def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
 # =====  )
 
 # === LOG.info("DONE loading order rows: %d", len(rows))
+=======
+    con.executemany(
+        """
+        INSERT INTO orders (order_id, store_id, product_category, quantity, amount, order_date)
+        VALUES (?, ?, ?, ?, ?, ?);
+        """,
+        rows
+   )
+
+    LOG.info("DONE loading sale rows: %d", len(rows))
+
+>>>>>>> 8d431c1e857cfcf23bbd3599c5103bfbac10fa34
 
 
 # === DEFINE THE MAIN FUNCTION ===
