@@ -136,7 +136,7 @@ def load_store_csv(con: sqlite3.Connection, csv_path: Path) -> None:
     con.executemany(
         """
         INSERT INTO store (store_id, store_name, city, region)
-        VALUES (?, ?, ?, ?);
+        VALUES (?, ?, ?, ?)
         """,
         rows,
     )
@@ -166,7 +166,7 @@ def load_order_csv(con: sqlite3.Connection, csv_path: Path) -> None:
     con.executemany(
         """
         INSERT INTO orders (order_id, store_id, product_category, quantity, amount, order_date)
-        VALUES (?, ?, ?, ?, ?, ?);
+        VALUES (?, ?, ?, ?, ?, ?)
         """,
         rows
    )
