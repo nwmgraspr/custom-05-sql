@@ -1,4 +1,4 @@
-"""app_retail_duckdb_case.py - Project script (example).
+"""app_restaurant_duckdb_case.py - Project script
 
 Author: Ralph Massaquoi
 Date: 2026-02
