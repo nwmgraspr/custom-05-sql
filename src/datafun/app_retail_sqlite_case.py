@@ -12,9 +12,9 @@ Purpose:
 
 Paths (relative to repo root):
    SQL:  sql/sqlite/*.sql
-   CSV:  data/raw/retail/store.csv
-   CSV:  data/raw/retail/sale.csv
-   DB:   artifacts/sqlite/retail.sqlite
+   CSV:  data/raw/restaurant/store.csv
+   CSV:  data/raw/restaurant/ordere.csv
+   DB:   artifacts/sqlite/restaurant.sqlite
 
 OBS:
   Don't edit this file - it should remain a working example.
@@ -39,14 +39,14 @@ LOG: logging.Logger = get_logger("P05", level="DEBUG")
 
 ROOT_DIR: Final[Path] = Path.cwd()
 
-DATA_RAW_DIR: Final[Path] = ROOT_DIR / "data" / "raw" / "retail"
-DATA_PROCESSED_DIR: Final[Path] = ROOT_DIR / "data" / "processed" / "retail"
+DATA_RAW_DIR: Final[Path] = ROOT_DIR / "data" / "raw" / "restaurant"
+DATA_PROCESSED_DIR: Final[Path] = ROOT_DIR / "data" / "processed" / "restaurant"
 ARTIFACTS_DIR: Final[Path] = ROOT_DIR / "artifacts" / "sqlite"
 SQL_DIR: Final[Path] = ROOT_DIR / "sql" / "sqlite"
 
 STORE_CSV: Final[Path] = DATA_RAW_DIR / "store.csv"
-SALE_CSV: Final[Path] = DATA_RAW_DIR / "sale.csv"
-DB_PATH: Final[Path] = ARTIFACTS_DIR / "retail.sqlite"
+SALE_CSV: Final[Path] = DATA_RAW_DIR / "order.csv"
+DB_PATH: Final[Path] = ARTIFACTS_DIR / "restaurant.sqlite"
 
 # === DECLARE HELPER FUNCTION:  READ SQL FROM PATH ===
 
@@ -155,24 +155,24 @@ def load_sale_csv(con: sqlite3.Connection, csv_path: Path) -> None:
         for r in reader:
             rows.append(
                 (
-                    r["sale_id"],
+                    r["order_id"],
                     r["store_id"],
                     r["product_category"],
                     int(r["quantity"]),
                     float(r["amount"]),
-                    r["sale_date"],
+                    r["order_date"],
                 )
             )
 
     con.executemany(
         """
-        INSERT INTO sale (sale_id, store_id, product_category, quantity, amount, sale_date)
+        INSERT INTO order (order_id, store_id, product_category, quantity, amount, order_date)
         VALUES (?, ?, ?, ?, ?, ?);
         """,
         rows,
     )
 
-    LOG.info("DONE loading sale rows: %d", len(rows))
+    LOG.info("DONE loading order rows: %d", len(rows))
 
 
 # === DEFINE THE MAIN FUNCTION ===
@@ -205,29 +205,29 @@ def main() -> None:
         # ----------------------------------------------------
         # STEP 1: CLEAN (optional, common practice during development)
         # ----------------------------------------------------
-        run_sql_script(con, SQL_DIR / "case_retail_clean.sql")
+        run_sql_script(con, SQL_DIR / "case_restaurant_clean.sql")
 
         # ----------------------------------------------------
         # STEP 2: BOOTSTRAP (create tables, load CSV data)
         # ----------------------------------------------------
-        run_sql_script(con, SQL_DIR / "case_retail_bootstrap.sql")
+        run_sql_script(con, SQL_DIR / "case_restaurant_bootstrap.sql")
         load_store_csv(con, STORE_CSV)
-        load_sale_csv(con, SALE_CSV)
+        load_sale_csv(con, ORDER_CSV)
         con.commit()
         LOG.info("COMMIT: data load complete")
 
         # ----------------------------------------------------
         # STEP 3: RUN BASIC QUERIES
         # ----------------------------------------------------
-        run_sql_query(con, SQL_DIR / "case_retail_query_store_count.sql")
-        run_sql_query(con, SQL_DIR / "case_retail_query_sales_count.sql")
-        run_sql_query(con, SQL_DIR / "case_retail_query_sales_aggregate.sql")
-        run_sql_query(con, SQL_DIR / "case_retail_query_sales_by_category.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_store_count.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_count.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_aggregate.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_order_by_category.sql")
 
         # ----------------------------------------------------
         # STEP 4: RUN KPI QUERY (ACTION-DRIVEN)
         # ----------------------------------------------------
-        run_sql_query(con, SQL_DIR / "case_retail_query_kpi_revenue.sql")
+        run_sql_query(con, SQL_DIR / "case_restaurant_query_kpi_revenue.sql")
 
         LOG.info("========================")
         LOG.info("Executed successfully!")
