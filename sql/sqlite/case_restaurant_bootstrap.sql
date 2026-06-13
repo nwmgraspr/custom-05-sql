@@ -10,7 +10,7 @@
 -- EXPECTED PROJECT PATHS (relative to repo root):
 --   SQL:  sql/sqlite/case_restaurant_bootstrap.sql
 --   CSV:  data/raw/restaurant/store.csv
---   CSV:  data/raw/restaurant/sale.csv
+--   CSV:  data/raw/restaurant/order.csv
 --   DB:   artifacts/sqlite/restaurant.sqlite
 --
 --
@@ -34,7 +34,7 @@
 -- In restaurant, stores sell many products.
 -- Therefore, we have two tables: store (1) and sale (M).
 -- - The store table is the independent/parent table (1).
--- - The sale table is the dependent/child table (M).
+-- - The order table is the dependent/child table (M).
 -- - The foreign key in the sale table references the primary key in the store table.
 --
 -- REQ: Tables must be created in order to satisfy foreign key constraints.
@@ -58,7 +58,7 @@ BEGIN TRANSACTION;
 -- ============================================================
 -- The independent table must be created first.
 -- In restaurant, stores exist independently of sales.
--- Therefore, create the store table before the sale table.
+-- Therefore, create the store table before the order table.
 --
 -- Create the `store` table using SQLite SQL syntax and data types.
 -- In our table, all the fields are required (NOT NULL).
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS store (
   city TEXT NOT NULL,
   region TEXT NOT NULL
 );
--- Create the `sale` table using SQLite SQL syntax and data types.
+-- Create the `order` table using SQLite SQL syntax and data types.
 CREATE TABLE IF NOT EXISTS sale (
   -- Every table must have a primary key that uniquely identifies each record.
   sale_id TEXT PRIMARY KEY,
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS sale (
   product_category TEXT NOT NULL,
   quantity INTEGER NOT NULL,
   amount DOUBLE NOT NULL,
-  sale_date TEXT NOT NULL
+ order_date TEXT NOT NULL
 );
 --
 --
