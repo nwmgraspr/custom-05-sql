@@ -140,7 +140,7 @@ def load_store_csv(con: sqlite3.Connection, csv_path: Path) -> None:
         """,
     
     con.execute("""
-    INSERT INTO orders
+    INSERT INTO order
     SELECT * FROM read_csv_auto('data/raw/restaurant/order.csv');
     """)
 
